@@ -17,21 +17,24 @@ class NoFilter extends ColorFilter {
 // Clarendon: adds light to lighter areas and dark to darker areas
 class ClarendonFilter extends ColorFilter {
   ClarendonFilter() : super(name: "Clarendon", intensity: 1.0) {
-    subFilters.add(new BrightnessSubFilter(intensity / 10));
-    subFilters.add(new ContrastSubFilter(intensity / 10));
-    subFilters.add(new SaturationSubFilter(1.5 * 0.1 * intensity));
+    subFilters.add(new BrightnessSubFilter(intensity.toInt() / 10));
+    subFilters.add(new ContrastSubFilter(intensity.toInt() / 10));
+    subFilters.add(new SaturationSubFilter(1.5 * 0.1 * intensity.toInt()));
+    print("From package: $intensity");
   }
 }
 
 class AddictiveRedFilter extends ColorFilter {
   AddictiveRedFilter() : super(name: "AddictiveRed", intensity : 1.0) {
     subFilters.add(new AddictiveColorSubFilter(50 + intensity.toInt(), 0, 0));
+    print("From package: $intensity");
   }
 }
 
 class AddictiveBlueFilter extends ColorFilter {
-  AddictiveBlueFilter() : super(name: "AddictiveBlue") {
-    subFilters.add(new AddictiveColorSubFilter(0, 0, 50));
+  AddictiveBlueFilter() : super(name: "AddictiveBlue", intensity: 1.0) {
+    subFilters.add(new AddictiveColorSubFilter(0, 0, 50 + intensity.toInt()));
+    print("From package: $intensity");
   }
 }
 
