@@ -16,10 +16,14 @@ class NoFilter extends ColorFilter {
 
 // Clarendon: adds light to lighter areas and dark to darker areas
 class ClarendonFilter extends ColorFilter {
+  double intensity;
   ClarendonFilter() : super(name: "Clarendon", intensity: 1.0) {
     subFilters.add(new BrightnessSubFilter(intensity.toInt() / 10));
     subFilters.add(new ContrastSubFilter(intensity.toInt() / 10));
     subFilters.add(new SaturationSubFilter(1.5 * 0.1 * intensity.toInt()));
+  }
+  void setIntensity(double intensity){
+    this.intensity = intensity;
     print("From package: $intensity");
   }
 }
