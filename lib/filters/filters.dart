@@ -3,7 +3,8 @@ import 'dart:typed_data';
 ///The [Filter] class to define a Filter consists of multiple [SubFilter]s
 abstract class Filter extends Object {
   final String name;
-  Filter({this.name}) : assert(name != null);
+  double intensity;
+  Filter({this.name, this.intensity}) : assert(name != null);
 
   ///Apply the [SubFilter] to an Image.
   void apply(Uint8List pixels);

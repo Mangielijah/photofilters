@@ -16,16 +16,16 @@ class NoFilter extends ColorFilter {
 
 // Clarendon: adds light to lighter areas and dark to darker areas
 class ClarendonFilter extends ColorFilter {
-  ClarendonFilter() : super(name: "Clarendon") {
-    subFilters.add(new BrightnessSubFilter(.1));
-    subFilters.add(new ContrastSubFilter(.1));
-    subFilters.add(new SaturationSubFilter(.15));
+  ClarendonFilter() : super(name: "Clarendon", intensity: 1.0) {
+    subFilters.add(new BrightnessSubFilter(intensity / 10));
+    subFilters.add(new ContrastSubFilter(intensity / 10));
+    subFilters.add(new SaturationSubFilter(1.5 * 0.1 * intensity));
   }
 }
 
 class AddictiveRedFilter extends ColorFilter {
-  AddictiveRedFilter() : super(name: "AddictiveRed") {
-    subFilters.add(new AddictiveColorSubFilter(50, 0, 0));
+  AddictiveRedFilter() : super(name: "AddictiveRed", intensity : 1.0) {
+    subFilters.add(new AddictiveColorSubFilter(50 + intensity.toInt(), 0, 0));
   }
 }
 
