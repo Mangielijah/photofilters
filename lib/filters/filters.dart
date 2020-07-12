@@ -8,6 +8,11 @@ abstract class Filter extends Object {
 
   ///Apply the [SubFilter] to an Image.
   void apply(Uint8List pixels);
+
+  ///Set the intensity of the filter
+  void setIntensity(double newIntensity){
+    this.intensity = newIntensity;
+  }
 }
 
 ///The [SubFilter] class is the abstract class to define any SubFilter.
