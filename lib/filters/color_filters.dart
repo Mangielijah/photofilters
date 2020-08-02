@@ -12,9 +12,9 @@ abstract class ColorSubFilter extends SubFilter {
 ///The [ColorFilter] class to define a Filter which will applied to each color, consists of multiple [SubFilter]s
 class ColorFilter extends Filter {
   List<ColorSubFilter> subFilters;
-  ColorFilter({String name})
+  ColorFilter({String name, double intensity})
       : subFilters = [],
-        super(name: name);
+        super(name: name, intensity: intensity);
 
   @override
   void apply(Uint8List bytes, int width, int height) {
