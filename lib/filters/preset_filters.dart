@@ -26,8 +26,9 @@ class ClarendonFilter extends ColorFilter {
 }
 
 class AddictiveRedFilter extends ColorFilter {
-  AddictiveRedFilter() : super(name: "AddictiveRed", intensity : 1.0) {
-    subFilters.add(new AddictiveColorSubFilter(50 + intensity.toInt(), 0, 0));
+  int i = 0;
+  AddictiveRedFilter({int i}) : super(name: "AddictiveRed", intensity : 1.0) {
+    subFilters.add(new AddictiveColorSubFilter(50 + i, 0, 0));
     print("From package: $intensity");
   }
 }
